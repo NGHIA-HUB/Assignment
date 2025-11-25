@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elegat - Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header giống landing page -->
+    <header class="bg-primary-custom py-3">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <h4 class="text-white mb-0 fw-bold">Elegat</h4>
+                <a href="Assignment.html" class="btn btn-light btn-sm">
+                    <i class="bi bi-eye me-1"></i> Xem Website
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container py-4">
+        <h3 class="mb-4 text-secondary-custom">Dashboard</h3>
+
+        <!-- Navigation Tabs -->
+        <ul class="nav nav-tabs mb-4" id="adminTabs">
+            <li class="nav-item">
+                <a class="nav-link active" href="#" data-section="services">Services</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" data-section="testimonials">Testimonials</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" data-section="portfolio">Portfolio</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" data-section="team">Team</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" data-section="stats">Statistics</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" data-section="contact">Contact</a>
+            </li>
+        </ul>
+
+        <!-- ========== SERVICES SECTION ========== -->
+        <div id="section-services" class="admin-section">
+            <div class="row">
+                <!-- Form bên trái -->
+                <div class="col-lg-4">
+                    <div class="mb-3">
+                        <label class="form-label">Icon (emoji)</label>
+                        <input type="text" class="form-control" id="svc-icon" placeholder="💡">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Title</label>
+                        <input type="text" class="form-control" id="svc-title" placeholder="Enter service title">
+                        <small class="text-muted">We'll never share your email with anyone else.</small>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Description</label>
+                        <textarea class="form-control" id="svc-desc" rows="4" placeholder="Enter description"></textarea>
+                        <small class="text-muted">We'll never share your email with anyone else.</small>
+                    </div>
+                    <input type="hidden" id="svc-id">
+                    <button class="btn btn-primary-custom" onclick="saveService()">Submit</button>
+                    <button class="btn btn-secondary" onclick="resetServiceForm()">Cancel</button>
+                </div>
+
+                <!-- Table bên phải -->
+                <div class="col-lg-8">
+                    <h5 class="mb-3">Services List</h5>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Icon</th>
+                                <th>Title</th>
+                                <th>Description</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="services-table"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== TESTIMONIALS SECTION ========== -->
+        <div id="section-testimonials" class="admin-section" style="display:none;">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="mb-3">
+                        <label class="form-label">Name</label>
+                        <input type="text" class="form-control" id="test-name" placeholder="Enter name">
+                        <small class="text-muted">We'll never share your email with anyone else.</small>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Job Title</label>
+                        <input type="text" class="form-control" id="test-role" placeholder="Enter job title">
+                        <small class="text-muted">We'll never share your email with anyone else.</small>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Image URL</label>
+                        <input type="text" class="form-control" id="test-img" placeholder="https://...">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Quote</label>
+                        <textarea class="form-control" id="test-quote" rows="4" placeholder="Enter quote"></textarea>
+                    </div>
+                    <input type="hidden" id="test-id">
+                    <button class="btn btn-primary-custom" onclick="saveTestimonial()">Submit</button>
+                    <button class="btn btn-secondary" onclick="resetTestimonialForm()">Cancel</button>
+                </div>
+
+                <div class="col-lg-8">
+                    <h5 class="mb-3">Testimonials List</h5>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Image</th>
+                                <th>Name</th>
+                                <th>Job Title</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="testimonials-table"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== PORTFOLIO SECTION ========== -->
+        <div id="section-portfolio" class="admin-section" style="display:none;">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="mb-3">
+                        <label class="form-label">Title</label>
+                        <input type="text" class="form-control" id="port-title" placeholder="Enter project title">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Category</label>
+                        <select class="form-select" id="port-category">
+                            <option value="app">App</option>
+                            <option value="product">Product</option>
+                            <option value="branding">Branding</option>
+                            <option value="books">Books</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Image URL</label>
+                        <input type="text" class="form-control" id="port-img" placeholder="https://...">
+                    </div>
+                    <input type="hidden" id="port-id">
+                    <button class="btn btn-primary-custom" onclick="savePortfolio()">Submit</button>
+                    <button class="btn btn-secondary" onclick="resetPortfolioForm()">Cancel</button>
+                </div>
+
+                <div class="col-lg-8">
+                    <h5 class="mb-3">Portfolio List</h5>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Image</th>
+                                <th>Title</th>
+                                <th>Category</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="portfolio-table"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== TEAM SECTION ========== -->
+        <div id="section-team" class="admin-section" style="display:none;">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="mb-3">
+                        <label class="form-label">Name</label>
+                        <input type="text" class="form-control" id="team-name" placeholder="Enter name">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Position</label>
+                        <input type="text" class="form-control" id="team-role" placeholder="Enter position">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Image URL</label>
+                        <input type="text" class="form-control" id="team-img" placeholder="https://...">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Social Links (JSON)</label>
+                        <input type="text" class="form-control" id="team-social" placeholder='{"facebook":"#","twitter":"#"}'>
+                    </div>
+                    <input type="hidden" id="team-id">
+                    <button class="btn btn-primary-custom" onclick="saveTeamMember()">Submit</button>
+                    <button class="btn btn-secondary" onclick="resetTeamForm()">Cancel</button>
+                </div>
+
+                <div class="col-lg-8">
+                    <h5 class="mb-3">Team List</h5>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Image</th>
+                                <th>Name</th>
+                                <th>Position</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="team-table"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== STATISTICS SECTION ========== -->
+        <div id="section-stats" class="admin-section" style="display:none;">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h5 class="mb-3">Statistics (About Section)</h5>
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <label class="form-label">Clients</label>
+                            <input type="number" class="form-control" id="stats-clients">
+                        </div>
+                        <div class="col-6">
+                            <label class="form-label">Projects</label>
+                            <input type="number" class="form-control" id="stats-projects">
+                        </div>
+                        <div class="col-6">
+                            <label class="form-label">Hours Of Support</label>
+                            <input type="number" class="form-control" id="stats-hours">
+                        </div>
+                        <div class="col-6">
+                            <label class="form-label">Workers</label>
+                            <input type="number" class="form-control" id="stats-workers">
+                        </div>
+                        <div class="col-12">
+                            <button class="btn btn-primary-custom" onclick="saveStats()">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== CONTACT SECTION ========== -->
+        <div id="section-contact" class="admin-section" style="display:none;">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h5 class="mb-3">Contact Information</h5>
+                    <div class="mb-3">
+                        <label class="form-label">Address</label>
+                        <input type="text" class="form-control" id="contact-address">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Phone</label>
+                        <input type="text" class="form-control" id="contact-phone">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-control" id="contact-email">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Google Maps Embed URL</label>
+                        <input type="text" class="form-control" id="contact-map">
+                    </div>
+                    <button class="btn btn-primary-custom" onclick="saveContact()">Submit</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-3 mt-4 border-top">
+        <div class="container text-center text-muted">
+            <small>© Copyright <strong>Elegat</strong> All Rights Reserved | Designed by <strong>#nghiand</strong></small>
+        </div>
+    </footer>
+
+    <script src="admin.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

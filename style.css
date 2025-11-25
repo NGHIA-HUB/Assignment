@@ -1,0 +1,324 @@
+:root {
+            --color-primary: #28a745;
+            --color-secondary: #37517e;
+            --color-accent: #ffffff;
+        }
+
+        body {
+            font-family: "Open Sans", sans-serif;
+        }
+
+        .text-primary-custom {
+            color: var(--color-primary) !important;
+        }
+
+        .bg-primary-custom {
+            background-color: var(--color-primary) !important;
+        }
+
+        .btn-primary-custom {
+            background-color: var(--color-primary) !important;
+            border-color: var(--color-primary) !important;
+            color: 1e7e34 !important;
+        }
+
+        .btn-primary-custom:hover {
+            background-color: #218838 !important;
+            border-color: #1e7e34 !important;
+        }
+
+        .text-secondary-custom {
+            color: var(--color-secondary) !important;
+        }
+
+        .bg-secondary-custom {
+            background-color: var(--color-secondary) !important;
+        }
+
+        .text-accent-custom {
+            color: var(--color-accent) !important;
+        }
+
+        .bg-accent-custom {
+            background-color: var(--color-accent) !important;
+        }
+
+        .bg-begie {
+            background-color: #f4f7f8;
+        }
+
+        .section-title {
+            position: relative;
+            padding: 40px 0;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--color-secondary);
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        .cta-section {
+            background: var(--color-primary);
+            color: #fff;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .stat-box {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .stat-box h3 {
+            color: var(--color-primary);
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        .stat-box p {
+            color: #888;
+        }
+
+        .service-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background-color: var(--color-primary);
+            color: #fff;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            height: 200px;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .testimonial-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .testimonial-stars {
+            color: var(--color-primary);
+            margin-bottom: 15px;
+        }
+
+        .team-member {
+            text-align: center;
+        }
+
+        .team-member img {
+            border-radius: 8px;
+            margin-bottom: 20px;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .team-member h5 {
+            color: var(--color-secondary);
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .team-member .role {
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .social-icons a {
+            color: var(--color-primary);
+            margin: 0 8px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: var(--color-secondary);
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 1px solid #ddd;
+            color: #333;
+            padding: 8px 20px;
+            margin: 5px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .filter-btn.active {
+            background: var(--color-primary);
+
+            border-color: var(--color-primary);
+        }
+
+        footer a {
+            color: #999;
+            text-decoration: none;
+        }
+
+
+
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--color-secondary) !important;
+            font-size: 1.5rem;
+        }
+
+        main {
+            width: 100%;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            z-index: 2;
+            display: inline-block;
+            line-height: 1.2;
+        }
+
+        .section-title-wrapper {
+            text-align: center;
+            position: relative;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 80px;
+        }
+
+        .section-title-wrapper::before {
+            content: attr(data-title);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -100%);
+            font-size: 5rem;
+            font-weight: 700;
+            color: rgba(0, 0, 0, 0.06);
+            z-index: 1;
+            white-space: nowrap;
+            letter-spacing: 3px;
+            line-height: 1;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+        }
+        .section-title-wrapper {
+            position: relative;
+        }
+        .section-title-wrapper::before {
+            content: attr(data-title);
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #e6e6e6;
+            font-size: 6rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            z-index: 0;
+            white-space: nowrap;
+        }
+
+        .testimonial-card blockquote::before {
+            content: "“";
+            position: absolute;
+            left: 10px;
+            top: -5px;
+            font-size: 4rem;
+            color: #e6e6e6;
+            z-index: 1;
+       }
+
+        .testimonial-card blockquote::after {
+            content: "”";
+            position: absolute;
+            right: 10px;
+            bottom: -35px;
+            font-size: 4rem;
+            color: #e6e6e6;
+            z-index: 1;
+        }
+        .testimonial-card blockquote {
+            position: relative;
+            margin: 0;
+            padding: 10px 40px;
+                z-index: 2;
+
+        }
+
+        .carousel-indicator-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: transparent;
+            border: 2px solid #20c997;
+            display: inline-block;
+            cursor: pointer;
+            margin: 0 4px;
+        }
+        .carousel-indicator-dot.active {
+            background-color: #20c997;
+        }
+
+        /* Admin panel styles */
+        #admin-panel .form-label.small { font-size: 0.8rem; }
+        #admin-panel .list-group-item { font-size: 0.9rem; }
+        #admin-panel .btn { font-size: 0.75rem; }
+
+        /* Make testimonial items fade a bit when not active (visual aid) */
+        .testimonial-item { transition: opacity 0.35s ease; }
+        .testimonial-item[style*="display: none"] { opacity: 0; pointer-events: none; }
+
+        @media (max-width: 768px) {
+            #admin-panel { font-size: 0.95rem; }
+        }

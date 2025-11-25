@@ -1,0 +1,12 @@
+{
+  "services": [
+    { "id": "s1", "icon": "💡", "title": "Web Design", "description": "Beautiful and responsive web designs." },
+    { "id": "s2", "icon": "⚙️", "title": "Development", "description": "Robust and scalable web applications." },
+    { "id": "s3", "icon": "🎨", "title": "Branding", "description": "Thoughtful brand experiences and identities." }
+  ],
+  "testimonials": [
+    { "id": "t1", "quote": "Great service and support!", "name": "Alice Smith", "role": "Founder", "image": "" },
+    { "id": "t2", "quote": "They delivered on time with quality.", "name": "Bob Johnson", "role": "CTO", "image": "" },
+    { "id": "t3", "quote": "Highly recommend their design team.", "name": "Carol Lee", "role": "Product Manager", "image": "" }
+  ]
+}
